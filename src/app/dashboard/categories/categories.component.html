@@ -1,0 +1,33 @@
+<div class="main-container">
+  <header class="content-header">
+    <h1>Categories</h1>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="content">
+      <mat-accordion [multi]="true" hideToggle>
+        <mat-expansion-panel *ngFor="let category of (categories$ | async)" expanded="">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <strong>{{ category.name }}</strong>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <p>
+            <mat-list role="list">
+              <mat-list-item role="listitem"
+                             *ngFor="let product of category.products">
+                <div>{{ product.name }} - price: {{ product.price | currency }}</div>
+
+                <div class="margin-l-auto">
+                  <app-add-to-cart *ngIf="product" [product]="product"></app-add-to-cart>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          <p>
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </main>
+</div>

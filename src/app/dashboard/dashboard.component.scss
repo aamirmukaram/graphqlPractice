@@ -1,0 +1,16 @@
+@import "~src/styles/colors";
+
+main {
+  display: flex;
+  height: 100%;
+}
+
+app-categories {
+  display: block;
+  width: 80%;
+}
+
+app-cart {
+  display: block;
+  width: 20%;
+}

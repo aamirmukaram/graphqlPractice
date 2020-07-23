@@ -1,0 +1,19 @@
+<main>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Fruit Shop</span>
+
+      <button mat-button [matMenuTriggerFor]="menu" class="margin-l-auto">
+        <ng-container *ngIf="(selectedCustomer$ | async) as customer; else customerNotSelected">
+          {{ customer.frstname }} {{ customer.lastname }}
+        </ng-container>
+        <ng-template #customerNotSelected>Please select user</ng-template>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let customer of (customers$ | async)" mat-menu-item (click)="setSelectedCustomer(customer)">
+          {{ customer.frstname }} {{ customer.lastname }}
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</main>

@@ -1,0 +1,73 @@
+@import "~src/styles/colors";
+@import "~src/styles/variables";
+
+$container-padding: 10px;
+$header-container-margin-bottom: 10px;
+
+
+header.content-header, .sub-header {
+  display: flex;
+  align-items: center;
+  background: $white;
+  border-radius: 4px;
+  padding: $container-padding;
+  margin-bottom: $header-container-margin-bottom;
+
+  h1, h2, h3 {
+    margin: 0 !important;
+  }
+}
+
+main.content-wrapper {
+  flex: 1;
+  width: calc(100% - #{$container-padding * 2});
+  background: $white;
+  position: relative;
+  border-radius: 4px;
+  padding: $container-padding;
+  overflow: auto;
+
+  > .add-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 70px;
+  }
+
+  .app-spinner {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 768px) {
+  .mobile-label {
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    display: flex;
+    padding: 8px 24px;
+    height: auto !important;
+    border-bottom: 1px solid rgba($primary, .67);
+  }
+
+  .mat-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 !important;
+    border-color: $iron;
+  }
+}

@@ -1,17 +1,17 @@
-@import "~src/styles/colors";
 @import "~src/styles/variables";
 
-.container {
+.main-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  margin: 0 $gutterSize;
 }
 
 section {
   flex-grow: 1;
   overflow: auto;
   background-color: $secondary;
-  padding: calc(#{$gutterSize} * 2) $gutterSize;
+  padding: 25px 50px;
 
   @media(max-width: 768px) {
     padding: 25px 10px;
